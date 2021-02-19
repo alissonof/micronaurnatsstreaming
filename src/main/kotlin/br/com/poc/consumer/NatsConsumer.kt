@@ -8,10 +8,10 @@ import io.nats.streaming.SubscriptionOptions
 @Prototype
 class NatsConsumer(private val connection: NatsConnection) {
 
-    fun listen(queue: String, queueGroup: String?, messageHandler: MessageHandler) {
+    fun listen(subject: String, queueGroup: String?, messageHandler: MessageHandler) {
         connection
                 .createConnection()
-                .subscribe(queue,
+                .subscribe(subject,
                         queueGroup,
                         messageHandler,
                         SubscriptionOptions.Builder().deliverAllAvailable().build())

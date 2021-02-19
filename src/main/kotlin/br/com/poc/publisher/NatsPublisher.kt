@@ -8,8 +8,8 @@ import javax.inject.Singleton
 class NatsPublisher(private val connection: NatsConnection,
                     private val mapper: ObjectMapper) {
 
-    fun <T> publish(queue :String, body :T){
+    fun <T> publish(subject :String, body :T){
         val json = mapper.writeValueAsString(body)
-        connection.createConnection().publish(queue, json.encodeToByteArray())
+        connection.createConnection().publish(subject, json.encodeToByteArray())
     }
 }
