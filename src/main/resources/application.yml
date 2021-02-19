@@ -1,0 +1,12 @@
+micronaut:
+  application:
+    name: messager
+
+nats:
+  connection:
+    cluster-id: test-cluster
+    client-id: bar
+    user: user
+    password: password
+    host: localhost
+    port: 4222
